@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+
+    
+      <div class="bg-blur"></div>
+
+    <div class="form-wrapper">
+      <div id="message" style="color: yellow; margin-top: 10px; font-weight: bold;"></div>
+      <div class="page-title">
+      <h1>Celestial Meal✨</h1>
+      <p>The Art of Fine Dining</p>
+      <p>Chào mừng đã trở lại, vui lòng đăng nhập</p>
+    </div>
+
+      <h2>Đăng nhập</h2>
+      <form id="login-form">
+        <div id="message-box" class="message-box hidden"></div>
+      
+        <div class="form-control">
+          <input id="email" type="text" required />
+          <label>Email</label>
+        </div>
+        <div class="form-control">
+          <input id="password" type="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit">Đăng nhập</button>
+        <button type="button" class="btn-facebook" onclick="loginWithFacebook()">Login with Facebook</button>
+        <div class="form-help">
+          <div class="remember-me">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Hãy nhớ tôi</label>
+          </div>
+          <a href="#">Cần trợ giúp?</a>
+        </div>
+      </form>
+      <p>Người mới với Celestial Meal? <a href="./register.html">Đăng kí ngay bây giờ</a></p>
+    </div>
+
+    <script type="module" src="script/login.js"></script>
+  </body>
+</html>

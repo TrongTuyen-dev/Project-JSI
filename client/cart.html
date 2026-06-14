@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giỏ hàng – Celestial Meal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<!-- Toast -->
+<div class="cm-toast-wrap" id="toastWrap"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="Menu.html">Celestial Meal✨</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="Menu.html">Trang chủ🏠</a></li>
+        <li class="nav-item"><a class="nav-link active" href="cart.html">Giỏ hàng🛒</a></li>
+        <li class="nav-item"><a class="nav-link" href="search.html">Tìm kiếm🔎</a></li>
+        <!-- Avatar người dùng — inject bởi navbar.js -->
+        <li class="nav-item ms-lg-2" id="navbar-user-info"></li>
+        <li class="nav-item ms-lg-3">
+          <button id="btnLogout" class="btn btn-outline-light btn-sm btn-logout">Đăng xuất 🚪</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="cart-hero">
+  <div class="container text-center position-relative">
+    <h1><i class="bi bi-cart3 me-3"></i>GIỎ HÀNG</h1>
+    <p>Kiểm tra và thanh toán đơn hàng của bạn</p>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<main class="container cart-wrapper pb-5">
+  <div class="row g-4">
+
+    <!-- LEFT: Danh sách -->
+    <div class="col-lg-8">
+      <div class="cart-card">
+
+        <!-- Header row -->
+        <div class="cart-header-row">
+          <input type="checkbox" class="cart-check" id="masterCheck">
+          <span>Tất cả <span id="cartCountHeader">(0 sản phẩm)</span></span>
+          <span>Đơn giá</span>
+          <span>Số lượng</span>
+          <span>Thành tiền</span>
+          <span></span>
+        </div>
+
+        <!-- Shop group -->
+        <div class="shop-group-header">
+          <i class="bi bi-shop" style="color:var(--gold)"></i>
+          <strong>Celestial Meal</strong>
+          <i class="bi bi-chevron-right ms-1" style="font-size:.7rem;color:var(--muted)"></i>
+        </div>
+
+        <!-- Items (JS render) -->
+        <div id="cartList"></div>
+
+        <!-- Empty state -->
+        <div class="cart-empty" id="cartEmpty" style="display:none;">
+          <i class="bi bi-cart-x"></i>
+          <p class="mt-2 fw-bold">Giỏ hàng của bạn đang trống</p>
+          <a href="Menu.html" style="display:inline-block;margin-top:12px;padding:9px 28px;background:var(--gold);color:var(--wood-dark);font-weight:700;font-size:.82rem;letter-spacing:1px;text-decoration:none;text-transform:uppercase;">
+            Tiếp tục mua sắm →
+          </a>
+        </div>
+
+        <!-- Promo bar -->
+        <div class="promo-bar">
+          <span><i class="bi bi-tag me-1" style="color:var(--gold)"></i><a href="#">Thêm mã khuyến mãi của Shop</a></span>
+          <span><i class="bi bi-truck me-1" style="color:var(--gold)"></i>Freeship đơn từ 100.000đ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Thanh toán -->
+    <div class="col-lg-4" id="summarySection" style="display:none;">
+      <div class="summary-card">
+        <div class="summary-title">Thanh toán</div>
+
+        <!-- Số dư ví -->
+        <div class="wallet-info">
+          <div class="d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-wallet2 me-2" style="color:var(--gold)"></i>Số dư ví</span>
+            <span class="wallet-balance" id="walletBal">—</span>
+          </div>
+          <div class="wallet-short" id="walletShort" style="display:none;"></div>
+        </div>
+
+        <div class="summary-row"><span>Sản phẩm đã chọn</span><span id="sumCount">0</span></div>
+        <div class="summary-row"><span>Tạm tính</span><span id="sumSubtotal">0đ</span></div>
+        <div class="summary-row"><span>Phí vận chuyển</span><span id="sumShip">—</span></div>
+        <div class="summary-total">
+          <span>Tổng cộng</span>
+          <span class="summary-total-price" id="sumTotal">0đ</span>
+        </div>
+
+        <button class="btn-checkout" id="btnCheckout" disabled>
+          <i class="bi bi-lightning-charge-fill me-2"></i>THANH TOÁN NGAY
+        </button>
+        <button class="btn-clear" id="btnClear">
+          <i class="bi bi-trash3 me-1"></i>Xóa toàn bộ giỏ hàng
+        </button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="brand">CELESTIAL MEAL</span>
+  <p style="margin:.4rem 0 0;color:#9a8a7a;font-size:.75rem;">© 2025 · Refined Dining Experience · TP. Hồ Chí Minh</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="./script/cart.js"></script>
+</body>
+</html>

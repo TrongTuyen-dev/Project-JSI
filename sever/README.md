@@ -1,0 +1,6 @@
+.env file
+```
+CLOUDINARY_CLOUD_NAME= SPCK
+CLOUDINARY_API_KEY= 432243931744124
+CLOUDINARY_SECRET_KEY= *********************************
+``` 

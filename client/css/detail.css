@@ -1,0 +1,419 @@
+/* ===== DETAIL PAGE - NHÂN BẢN PHONG CÁCH TỪ MENU.CSS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --wood-dark: #2c1e14;
+  --wood-medium: #4a3728;
+  --gold-accent: #c5a059;
+  --gold-hover: #d4b06a;
+  --cream-light: #fdfbf7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cream-light);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--wood-dark);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: var(--wood-dark) !important;
+  border-bottom: 3px solid var(--gold-accent);
+  padding: 15px 0;
+}
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold-accent) !important;
+  font-size: 1.5rem;
+}
+.nav-link {
+  color: #e5dfd5 !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: var(--gold-accent) !important;
+}
+.logout-btn {
+  border-radius: 0;
+  border-color: var(--gold-accent);
+  color: var(--gold-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.logout-btn:hover {
+  background-color: var(--gold-accent);
+  color: var(--wood-dark);
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-custom {
+  font-size: 0.85rem;
+  padding: 12px 0;
+  border-bottom: 1px dashed #eadecc;
+  margin-bottom: 30px !important;
+}
+.breadcrumb-custom a {
+  color: var(--gold-accent);
+  text-decoration: none;
+}
+.breadcrumb-custom a:hover {
+  text-decoration: underline;
+}
+
+/* ===== HÌNH ẢNH ===== */
+.detail-img-box {
+  border: 2px solid var(--gold-accent);
+  padding: 15px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.detail-img-box:hover {
+  transform: scale(1.01);
+}
+.detail-img-box img {
+  width: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  height: 450px;
+}
+
+/* ===== THÔNG TIN SẢN PHẨM ===== */
+.detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--wood-dark);
+  margin-bottom: 15px;
+}
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.star-rating {
+  background: #f3eee8;
+  padding: 6px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b37b2e;
+}
+.star-rating i {
+  color: #ffb347;
+}
+.review-count {
+  font-size: 0.9rem;
+  color: #6c5b4b;
+}
+.badge-gold {
+  background: var(--gold-accent);
+  color: var(--wood-dark);
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.detail-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 25px 0;
+  color: #4a3a2a;
+}
+.price-box {
+  background: #f9f5ee;
+  padding: 20px;
+  border-left: 5px solid var(--gold-accent);
+  margin: 25px 0;
+}
+.current-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+}
+.old-price {
+  font-size: 1.2rem;
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 15px;
+}
+.discount-badge {
+  background: #e8a735;
+  color: white;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 15px;
+}
+.info-row {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: #5a4a3a;
+  padding: 5px 0;
+}
+.info-row i {
+  color: var(--gold-accent);
+  width: 32px;
+  font-size: 1.2rem;
+}
+.btn-add-cart {
+  background-color: var(--wood-dark);
+  border: 2px solid var(--gold-accent);
+  color: var(--gold-accent);
+  padding: 14px 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s;
+  width: 100%;
+  max-width: 320px;
+  font-size: 1rem;
+}
+.btn-add-cart:hover {
+  background-color: var(--gold-accent);
+  color: var(--wood-dark);
+  transform: translateY(-3px);
+}
+
+/* ===== MÔ TẢ CHI TIẾT ===== */
+.detail-info {
+  border-top: 2px solid var(--gold-accent);
+  padding-top: 40px;
+  margin-top: 40px;
+}
+.detail-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--wood-dark);
+  margin-bottom: 25px;
+}
+.Text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a3a2a;
+}
+
+/* ===== PHẦN BÌNH LUẬN ===== */
+.comments-section {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 2px solid var(--gold-accent);
+}
+.comments-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--wood-dark);
+  border-left: 5px solid var(--gold-accent);
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.comment-form {
+  background: white;
+  padding: 30px;
+  border: 1px solid #eadecc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  margin-bottom: 30px;
+}
+.custom-input {
+  border-radius: 0;
+  border: 1px solid #d3c7b5;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+.custom-input:focus {
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+  outline: none;
+}
+.rating-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+.rating-input span {
+  font-weight: 500;
+  color: var(--wood-dark);
+}
+.rating-input i {
+  font-size: 1.3rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.rating-input i.active-star,
+.rating-input i.bi-star-fill {
+  color: #ffb347;
+}
+.rating-input i:hover {
+  color: #ffb347;
+  transform: scale(1.1);
+}
+.btn-submit-comment {
+  background: var(--wood-dark);
+  color: var(--gold-accent);
+  border: 1px solid var(--gold-accent);
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+.btn-submit-comment:hover {
+  background: var(--gold-accent);
+  color: var(--wood-dark);
+}
+
+/* Comment item */
+.comment-item {
+  background: white;
+  border: 1px solid #eadecc;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+.comment-item:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.comment-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comment-user i {
+  font-size: 1.3rem;
+  color: var(--gold-accent);
+}
+.comment-name {
+  font-weight: 700;
+  color: var(--wood-dark);
+  font-size: 1rem;
+}
+.comment-rating i {
+  color: #ffb347;
+  font-size: 0.85rem;
+}
+.comment-date {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+.comment-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a3a2a;
+  margin: 12px 0 10px 0;
+}
+.btn-delete-comment {
+  background: none;
+  border: none;
+  color: #c70000;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 5px 0;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+.btn-delete-comment:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.empty-comments {
+  text-align: center;
+  padding: 50px;
+  color: #aaa;
+  font-style: italic;
+  background: white;
+  border: 1px dashed #eadecc;
+}
+.empty-comments i {
+  font-size: 3rem;
+  color: #ddd;
+  margin-bottom: 15px;
+  display: block;
+}
+.empty-comments p {
+  margin: 0;
+}
+
+/* ===== FOOTER ===== */
+#footer {
+  background-color: var(--wood-dark);
+  border-top: 4px solid var(--gold-accent);
+  padding: 50px 0;
+  color: #c0b3a3;
+  margin-top: 60px;
+}
+#footer p {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  color: var(--gold-accent);
+}
+.social-icons {
+  font-size: 1.4rem;
+  color: #c0b3a3;
+}
+.social-icons i {
+  transition: 0.2s;
+  cursor: pointer;
+}
+.social-icons i:hover {
+  color: var(--gold-accent);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .detail-title {
+    font-size: 2rem;
+  }
+  .current-price {
+    font-size: 1.8rem;
+  }
+  .detail-img-box img {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-title {
+    font-size: 1.6rem;
+  }
+  .current-price {
+    font-size: 1.5rem;
+  }
+  .detail-img-box img {
+    height: 280px;
+  }
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .price-box {
+    padding: 15px;
+  }
+  .btn-add-cart {
+    max-width: 100%;
+  }
+}

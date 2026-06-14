@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết | Salad Cá Hồi - Celestial Meal</title>
+  <!-- Bootstrap 5 & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CSS riêng cho trang detail -->
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR - NHÂN BẢN Y HỆT MENU.CSS ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="Menu.html">Celestial Meal✨</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="Menu.html">Trang chủ🏠</a></li>
+        <li class="nav-item"><a class="nav-link" href="#footer">Thông tin liên hệ📞</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Giỏ hàng (<span id="cart-count">0</span>)</a></li>
+        <li class="nav-item ms-lg-2" id="navbar-user-info"></li>
+        <li class="nav-item ms-lg-3">
+          <button id="btnLogout" class="btn btn-outline-light btn-sm logout-btn">Đăng xuất 🚪</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== NỘI DUNG CHI TIẾT SẢN PHẨM ========== -->
+<div class="container my-5">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-custom mb-4">
+    <a href="Menu.html">Trang chủ</a> / <span class="text-muted">Salad Cá Hồi Sốt Chanh Dây</span>
+  </div>
+
+  <div class="row g-5">
+    <!-- Cột hình ảnh -->
+    <div class="col-lg-6">
+      <div class="detail-img-box">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800" alt="Salad Cá Hồi">
+      </div>
+    </div>
+
+    <!-- Cột thông tin sản phẩm -->
+    <div class="col-lg-6">
+      <h1 class="detail-title">Salad Cá Hồi Sốt Chanh Dây</h1>
+      <div class="rating-section mb-3">
+        <span class="star-rating"><i class="bi bi-star-fill"></i> 4.8</span>
+        <span class="review-count" id="reviewCount">(0 đánh giá)</span>
+        <span class="badge-gold ms-2">Best Seller</span>
+      </div>
+      <p class="detail-desc">Salad cá hồi tươi kết hợp sốt chanh dây thơm lừng, rau củ hữu cơ giòn ngọt.</p>
+
+      <div class="price-box mb-4">
+        <span class="current-price">185.000đ</span>
+        <span class="old-price">250.000đ</span>
+        <span class="discount-badge">-26%</span>
+      </div>
+
+      <div class="info-row">
+        <i class="bi bi-truck"></i> <strong>Vận chuyển:</strong> Miễn phí nội thành
+      </div>
+      <div class="info-row">
+        <i class="bi bi-arrow-return-left"></i> <strong>Đổi trả:</strong> 15 ngày miễn phí
+      </div>
+      <div class="info-row">
+        <i class="bi bi-shield-check"></i> <strong>Bảo hành:</strong> Chất lượng cam kết
+      </div>
+
+      <!-- Nút thêm giỏ hàng -->
+      <button class="btn-add-cart mt-4" 
+          class="btn btn-primary" 
+          onclick="addToCart(this)" 
+          data-name="Salad Cá Hồi" 
+          data-price="150000" 
+          data-image="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800">
+          <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+      </button>
+    </div>
+  </div>
+
+  <!-- Mô tả chi tiết món ăn -->
+  <div class="detail-info mt-5">
+    <h3><i class="bi bi-info-circle me-2"></i> Chi tiết món ăn</h3>
+    <p class="Text">
+      Salad cá hồi sốt chanh dây là sự kết hợp tinh tế giữa ẩm thực Á Âu. Cá hồi Na Uy tươi ngon được áp chảo nhẹ, giữ được độ ngọt tự nhiên và béo ngậy, kết hợp cùng xà lách baby, cà chua bi, bơ, dưa leo và sốt chanh dây đặc trưng của nhà hàng. Chanh dây mang đến vị chua nhẹ, thanh mát, kích thích vị giác. Món ăn giàu dinh dưỡng với omega-3, vitamin và khoáng chất, phù hợp cho những ai yêu thích lối sống lành mạnh.
+    </p>
+  </div>
+
+  <!-- ========== PHẦN BÌNH LUẬN ========== -->
+  <div class="comments-section mt-5">
+    <h3><i class="bi bi-chat-dots me-2"></i> Đánh giá & Bình luận</h3>
+    
+    <!-- Form thêm bình luận -->
+    <div class="comment-form mt-4">
+      <div class="row g-3">
+        <div class="col-md-8">
+          <input type="text" id="commentName" class="form-control custom-input" placeholder="Tên của bạn">
+        </div>
+        <div class="col-md-8">
+          <textarea id="commentText" class="form-control custom-input" rows="3" placeholder="Chia sẻ cảm nhận của bạn về món ăn..."></textarea>
+        </div>
+        <div class="col-md-4">
+          <div class="rating-input mb-2">
+            <span>Đánh giá: </span>
+            <i class="bi bi-star" data-rate="1"></i>
+            <i class="bi bi-star" data-rate="2"></i>
+            <i class="bi bi-star" data-rate="3"></i>
+            <i class="bi bi-star" data-rate="4"></i>
+            <i class="bi bi-star" data-rate="5"></i>
+          </div>
+          <input type="hidden" id="commentRating" value="5">
+        </div>
+        <div class="col-12">
+          <button id="btnAddComment" class="btn-submit-comment">Gửi bình luận <i class="bi bi-send"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Danh sách bình luận -->
+    <div id="commentsList" class="mt-4">
+      <!-- Bình luận sẽ được hiển thị động bằng JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer" class="text-center mt-5">
+  <div class="container">
+    <p class="mb-2">CELESTIAL MEAL - REFINED DINING EXPERIENCE</p>
+    <div class="small">Địa chỉ: 123 Đường Tinh Hoa, Quận 1, TP. Hồ Chí Minh</div>
+    <div class="social-icons mt-3">
+      <i class="bi bi-facebook me-3"></i>
+      <i class="bi bi-instagram me-3"></i>
+      <i class="bi bi-tiktok"></i>
+    </div>
+  </div>
+</footer>
+
+<!-- JS riêng -->
+<script type="module" src="script/detail.js"></script>
+</body>
+</html>

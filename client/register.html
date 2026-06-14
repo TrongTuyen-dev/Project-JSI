@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+<!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS của bạn -->
+  <link rel="stylesheet" href="css/register.css">
+
+  </head>
+  <body>
+      <div class="bg-blur"></div>
+        <div class="form-wrapper">
+          <div id="message" style="color: yellow; margin-top: 10px; font-weight: bold;"></div>
+            <div class="page-title">
+        <h1>Celestial Meal✨</h1>
+        <p>Hãy tạo tài khoản của bạn </p>
+      </div>
+
+      <h2>Sign Up</h2>
+      <form id="register-form">
+        <div id="message-box" class="message-box hidden"></div>
+        <div class="form-control">
+          <input id="username" type="text" required />
+          <label>Username</label>
+        </div>
+        <div class="form-control">
+          <input id="email" type="text" required />
+          <label>Email address</label>
+        </div>
+        <div class="form-control">
+          <input id="password" type="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit">Đăng kí</button>
+        <div class="form-help">
+          <div class="remember-me">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Hãy nhớ tôi</label>
+          </div>
+          <a href="#">Cần trợ giúp?</a>
+        </div>
+      </form>
+      <p>Đã có sẵn tài khoản? <a href="./login.html">Đăng nhập ngay</a></p>
+    </div>
+    
+  </body>
+  <script type="module" src="script/register.js"></script>
+</html>

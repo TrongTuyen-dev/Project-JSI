@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tìm kiếm món ăn – Celestial Meal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<!-- Toast -->
+<div class="cm-toast-wrap" id="toastWrap"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="Menu.html">Celestial Meal✨</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="Menu.html">Trang chủ🏠</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng🛒</a></li>
+        <li class="nav-item"><a class="nav-link active" href="search.html">Tìm kiếm🔎</a></li>
+        <!-- Avatar người dùng — inject bởi navbar.js -->
+        <li class="nav-item ms-lg-2" id="navbar-user-info"></li>
+        <li class="nav-item ms-lg-3">
+          <button id="btnLogout" class="btn btn-outline-light btn-sm btn-logout">Đăng xuất 🚪</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO + SEARCH BOX ── -->
+<div class="search-hero">
+  <div class="container">
+    <h1><i class="bi bi-search me-3"></i>TÌM MÓN ĂN</h1>
+    <p>Khám phá thực đơn tinh tuyển của Celestial Meal</p>
+
+    <div class="search-box-wrap">
+      <input type="text" id="searchInput" class="search-box" placeholder="Nhập tên món ăn (ví dụ: Cá Hồi, Bò Wagyu...)" autocomplete="off">
+      <i class="bi bi-search search-box-icon"></i>
+    </div>
+
+    <div class="cat-chips">
+      <button class="cat-chip active" data-cat="Tất cả">Tất cả</button>
+      <button class="cat-chip" data-cat="Khai vị">Khai vị</button>
+      <button class="cat-chip" data-cat="Món chính">Món chính</button>
+      <button class="cat-chip" data-cat="Tráng miệng">Tráng miệng</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── RESULTS ── -->
+<main class="container results-wrapper">
+  <div class="results-meta" id="resultsMeta"></div>
+
+  <div class="row g-4" id="results"></div>
+
+  <div class="search-empty" id="searchEmpty" style="display:none;">
+    <i class="bi bi-search"></i>
+    <p class="fw-bold mb-1">Không tìm thấy món ăn phù hợp</p>
+    <p style="font-size:.85rem;">Hãy thử từ khóa khác hoặc chọn danh mục khác</p>
+  </div>
+</main>
+
+<!-- ── DETAIL MODAL ── -->
+<div class="detail-modal-backdrop" id="detailModalBackdrop">
+  <div class="detail-modal" id="detailModalContent">
+    <!-- Nội dung được JS render -->
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="brand">CELESTIAL MEAL</span>
+  <p style="margin:.4rem 0 0;color:#9a8a7a;font-size:.75rem;">© 2025 · Refined Dining Experience · TP. Hồ Chí Minh</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="./script/search.js"></script>
+</body>
+</html>

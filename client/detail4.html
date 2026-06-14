@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết | Cá Hồi Na Uy - Celestial Meal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="Menu.html">Celestial Meal✨</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="Menu.html">Trang chủ🏠</a></li>
+        <li class="nav-item"><a class="nav-link" href="#footer">Thông tin liên hệ📞</a></li>
+        <li class="nav-item ms-lg-2" id="navbar-user-info"></li>
+        <li class="nav-item ms-lg-3">
+          <button id="btnLogout" class="btn btn-outline-light btn-sm logout-btn">Đăng xuất 🚪</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <div class="breadcrumb-custom mb-4">
+    <a href="Menu.html">Trang chủ</a> / <span class="text-muted">Cá Hồi Na Uy Sốt Bơ Chanh</span>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-lg-6">
+      <div class="detail-img-box">
+        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800" alt="Cá Hồi Na Uy">
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <h1 class="detail-title">Cá Hồi Na Uy Sốt Bơ Chanh</h1>
+      <div class="rating-section mb-3">
+        <span class="star-rating"><i class="bi bi-star-fill"></i> 4.6</span>
+        <span class="review-count">(178 đánh giá)</span>
+        <span class="badge-gold ms-2">Fresh</span>
+      </div>
+      <p class="detail-desc">Cá hồi Na Uy tươi sống, áp chảo vàng cùng sốt bơ chanh thơm béo.</p>
+
+      <div class="price-box mb-4">
+        <span class="current-price">390.000đ</span>
+        <span class="old-price">520.000đ</span>
+        <span class="discount-badge">-25%</span>
+      </div>
+
+      <div class="info-row"><i class="bi bi-truck"></i> <strong>Vận chuyển:</strong> Miễn phí nội thành</div>
+      <div class="info-row"><i class="bi bi-arrow-return-left"></i> <strong>Đổi trả:</strong> 15 ngày miễn phí</div>
+      <div class="info-row"><i class="bi bi-shield-check"></i> <strong>Bảo hành:</strong> Chất lượng cam kết</div>
+
+      <button class="btn-add-cart mt-4" data-name="Cá Hồi Na Uy Sốt Bơ Chanh" data-price="390000" data-image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800" onclick="addToCart(this)">
+        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-info mt-5">
+    <h3><i class="bi bi-info-circle me-2"></i> Chi tiết món ăn</h3>
+    <p class="Text">Cá hồi Na Uy được áp chảo vàng hoàn hảo, giữ được độ ẩm và vị ngọt tự nhiên. Sốt bơ chanh được pha chế theo công thức đặc biệt từ bơ lạt, nước cốt chanh tươi, kem sữa và thì là. Món ăn được phục vụ cùng khoai tây nghiền và rau củ luộc. Bổ sung omega-3 và vitamin D, rất tốt cho sức khỏe tim mạch.</p>
+  </div>
+</div>
+
+ <!-- ========== PHẦN BÌNH LUẬN ========== -->
+  <div class="comments-section mt-5">
+    <h3><i class="bi bi-chat-dots me-2"></i> Đánh giá & Bình luận</h3>
+    
+    <!-- Form thêm bình luận -->
+    <div class="comment-form mt-4">
+      <div class="row g-3">
+        <div class="col-md-8">
+          <input type="text" id="commentName" class="form-control custom-input" placeholder="Tên của bạn">
+        </div>
+        <div class="col-md-8">
+          <textarea id="commentText" class="form-control custom-input" rows="3" placeholder="Chia sẻ cảm nhận của bạn về món ăn..."></textarea>
+        </div>
+        <div class="col-md-4">
+          <div class="rating-input mb-2">
+            <span>Đánh giá: </span>
+            <i class="bi bi-star" data-rate="1"></i>
+            <i class="bi bi-star" data-rate="2"></i>
+            <i class="bi bi-star" data-rate="3"></i>
+            <i class="bi bi-star" data-rate="4"></i>
+            <i class="bi bi-star" data-rate="5"></i>
+          </div>
+          <input type="hidden" id="commentRating" value="5">
+        </div>
+        <div class="col-12">
+          <button id="btnAddComment" class="btn-submit-comment">Gửi bình luận <i class="bi bi-send"></i></button>
+        </div>
+      </div>
+    </div>
+
+<footer id="footer" class="text-center mt-5">
+  <div class="container">
+    <p class="mb-2">CELESTIAL MEAL - REFINED DINING EXPERIENCE</p>
+    <div class="small">Địa chỉ: 123 Đường Tinh Hoa, Quận 1, TP. Hồ Chí Minh</div>
+    <div class="social-icons mt-3">
+      <i class="bi bi-facebook me-3"></i>
+      <i class="bi bi-instagram me-3"></i>
+      <i class="bi bi-tiktok"></i>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="script/detail.js"></script>
+</body>
+</html>
