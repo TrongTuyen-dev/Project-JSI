@@ -1,8 +1,7 @@
 // Sửa đường dẫn import cho khớp với menu.js (dùng 10.12.2)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Đảm bảo cấu hình firebaseConfig giống hệt file menu.js của bạn
 const firebaseConfig = {
   apiKey: "AIzaSyDP7nkvjEafM8XIVQlnl3c3hp4bHgN3Vc8",
   authDomain: "spck-tuyenjsi-10.firebaseapp.com",
@@ -15,6 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 // --- ÉP BẮT BUỘC ĐỢI HTML LOAD XONG MỚI CHẠY JS ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -57,18 +57,30 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("LỖI: Không tìm thấy thẻ <form id='login-form'>. Hãy kiểm tra lại file login.html xem đã Save chưa nhé!");
     }
-});
 
-// Đăng nhập qua Facebook (nếu có dùng)
-const btnFb = document.getElementById("btnFacebook");
-if (btnFb) {
-  btnFb.onclick = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-      showMessage("✅ Liên kết Facebook thành công!", "success");
-      window.location.href = "Menu.html";
-    } catch (error) {
-       console.log(error);
+    // Đăng nhập bằng Google
+    const btnGoogle = document.getElementById("btnGoogle");
+    if (btnGoogle) {
+        btnGoogle.addEventListener("click", async () => {
+            if (messageBox) messageBox.classList.add("hidden");
+            try {
+                await signInWithPopup(auth, googleProvider);
+                showMessage("🔓 Đăng nhập bằng Google thành công! Đang chuyển hướng...", "success");
+                setTimeout(() => {
+                    window.location.href = "Menu.html";
+                }, 1200);
+            } catch (error) {
+                console.error("Lỗi đăng nhập Google:", error);
+                let errorMsg = "❌ Đăng nhập bằng Google thất bại. Vui lòng thử lại.";
+                if (error.code === "auth/popup-closed-by-user") {
+                    errorMsg = "Bạn đã đóng cửa sổ đăng nhập Google trước khi hoàn tất.";
+                } else if (error.code === "auth/account-exists-with-different-credential") {
+                    errorMsg = "❌ Email này đã được dùng để đăng ký bằng phương thức khác.";
+                } else if (error.code === "auth/operation-not-allowed") {
+                    errorMsg = "❌ Đăng nhập Google chưa được bật trong Firebase Console.";
+                }
+                showMessage(errorMsg, "error");
+            }
+        });
     }
-  };
-}
+});

@@ -1,8 +1,3 @@
-/**
- * products.js — Danh mục món ăn dùng chung (Search, Menu...)
- * Mỗi sản phẩm có đủ thông tin để hiển thị card + modal chi tiết.
- */
-
 export const PRODUCTS = [
   {
     id: 1,
@@ -83,17 +78,6 @@ export const PRODUCTS = [
   },
   {
     id: 8,
-    name: "Sườn Cừu Nướng Rosemary",
-    category: "Món chính",
-    price: 520000,
-    oldPrice: 600000,
-    image: "https://images.unsplash.com/photo-1625938144755-6b1b3c3e4e2c?auto=format&fit=crop&q=80&w=800",
-    rating: 4.8,
-    desc: "Sườn cừu nướng thảo mộc rosemary, vỏ ngoài giòn thơm.",
-    detail: "Sườn cừu Úc được ướp cùng rosemary, tỏi và dầu olive, nướng ở nhiệt độ cao để tạo lớp vỏ ngoài giòn thơm, giữ phần thịt bên trong mềm và ngọt tự nhiên."
-  },
-  {
-    id: 9,
     name: "Crème Brûlée Pháp",
     category: "Tráng miệng",
     price: 135000,
@@ -104,7 +88,7 @@ export const PRODUCTS = [
     detail: "Crème Brûlée được làm từ kem tươi, trứng và vani Madagascar, nướng cách thủy để có độ mịn hoàn hảo, phía trên rắc đường và xử lý bằng đèn khò tạo lớp caramel giòn tan đặc trưng."
   },
   {
-    id: 10,
+    id: 9,
     name: "Bộ Macaron Thủy Tinh",
     category: "Tráng miệng",
     price: 99000,
@@ -113,5 +97,60 @@ export const PRODUCTS = [
     rating: 4.5,
     desc: "Bộ macaron Pháp nhiều vị, vỏ giòn nhẹ, nhân kem mềm mịn.",
     detail: "Bộ Macaron gồm 6 vị: vani, socola, dâu, trà xanh, chanh và cà phê. Vỏ bánh giòn nhẹ đặc trưng kiểu Pháp, nhân kem ganache hoặc bơ mềm mịn, béo ngậy vừa phải."
+  },
+  {
+    id: 10,
+    name: "Rượu Vang Đỏ Bordeaux Thượng Hạng",
+    category: "Đồ uống",
+    price: 450000,
+    oldPrice: 550000,
+    image: "https://images.unsplash.com/photo-1630369160812-26c7604cbd8c?auto=format&fit=crop&q=80&w=800",
+    rating: 4.8,
+    desc: "Vang đỏ Bordeaux ủ lâu năm, hương vị đậm đà, tinh tế cho bữa tối sang trọng.",
+    detail: "Chai vang đỏ nhập khẩu từ vùng Bordeaux nước Pháp, được ủ trong thùng gỗ sồi theo phương pháp truyền thống. Hương vị đậm đà với tannin mềm mại, hậu vị kéo dài, rất hợp khi dùng cùng các món bò áp chảo hay phô mai cao cấp."
+  },
+  {
+    id: 11,
+    name: "Cocktail Hoàng Hôn Celestial",
+    category: "Đồ uống",
+    price: 165000,
+    oldPrice: 195000,
+    image: "https://images.unsplash.com/photo-1587223962930-cb7f31384c19?auto=format&fit=crop&q=80&w=800",
+    rating: 4.6,
+    desc: "Cocktail signature pha chế độc quyền, vị cam quýt tươi mát, sắc vàng hổ phách.",
+    detail: "Cocktail đặc trưng của Celestial Meal, kết hợp rượu nền cao cấp cùng nước cam tươi, siro caramel và vài giọt đắng (bitters), tạo nên hương vị cân bằng giữa ngọt - chua - đắng nhẹ. Thức uống lý tưởng để mở đầu bữa tối."
+  },
+  {
+    id: 12,
+    name: "Cà Phê Espresso Ý Nguyên Chất",
+    category: "Đồ uống",
+    price: 65000,
+    oldPrice: 85000,
+    image: "https://images.unsplash.com/photo-1660229496744-1c772fabc06a?auto=format&fit=crop&q=80&w=800",
+    rating: 4.7,
+    desc: "Espresso rang xay nguyên chất kiểu Ý, vị đậm đà, lớp crema vàng óng.",
+    detail: "Cà phê Espresso pha từ hạt Arabica & Robusta rang theo công thức Ý cổ điển, chiết xuất bằng máy áp suất cao tạo lớp crema mịn màng phía trên. Hương vị đậm, hậu vị hơi đắng nhẹ, rất hợp dùng sau bữa chính hoặc cùng tráng miệng."
+  },
+  {
+    id: 13,
+    name: "Combo Bít Tết Đôi & Khoai Tây Nướng",
+    category: "Combo",
+    price: 1250000,
+    oldPrice: 1450000,
+    image: "https://images.unsplash.com/photo-1568046097340-56eb1e93bc1e?auto=format&fit=crop&q=80&w=800",
+    rating: 4.9,
+    desc: "Set 2 phần bít tết bò Wagyu kèm khoai tây nướng, salad và sốt tiêu đen.",
+    detail: "Combo dành cho 2 người gồm 2 phần bít tết bò Wagyu áp chảo chuẩn medium, ăn kèm khoai tây nướng bơ tỏi, salad rau củ hữu cơ và sốt tiêu đen đặc trưng của nhà hàng. Lựa chọn hoàn hảo cho bữa tối lãng mạn hoặc dịp kỷ niệm."
+  },
+  {
+    id: 14,
+    name: "Combo Bàn Tiệc Lãng Mạn Cho Hai",
+    category: "Combo",
+    price: 1590000,
+    oldPrice: 1850000,
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800",
+    rating: 4.8,
+    desc: "Set tiệc đôi: cá hồi sốt bơ chanh, 1 chai vang đỏ và tráng miệng tự chọn.",
+    detail: "Combo trọn vẹn cho buổi hẹn hò: phi-lê cá hồi Na Uy sốt bơ chanh, kèm 1 chai rượu vang đỏ Bordeaux và 2 phần tráng miệng tự chọn (Tiramisu hoặc Crème Brûlée). Không gian bàn được setup riêng tư với nến thơm theo yêu cầu."
   }
 ];

@@ -144,24 +144,32 @@ button[type="submit"]:hover {
   color: var(--wood-dark);
 }
 
-.btn-facebook {
+.btn-google {
   width: 100%;
   padding: 12px;
-  background: transparent;
-  color: #3b5998;
-  border: 1px solid #3b5998;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  background: #fff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  text-transform: none;
+  letter-spacing: .2px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   cursor: pointer;
   margin-top: 15px;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.btn-facebook:hover {
-  background: #3b5998;
-  color: #fff;
+.btn-google:hover {
+  background: #f7f8f8;
+  box-shadow: 0 1px 3px rgba(60,64,67,.3);
+}
+
+.btn-google .google-icon {
+  flex-shrink: 0;
 }
 
 .form-help {

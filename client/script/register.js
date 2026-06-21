@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
-// LƯU Ý: Thay thế cấu hình Firebase dưới đây bằng đúng thông số từ Firebase Console của bạn
+
 const firebaseConfig = {
   apiKey: "AIzaSyDP7nkvjEafM8XIVQlnl3c3hp4bHgN3Vc8",
   authDomain: "spck-tuyenjsi-10.firebaseapp.com",

@@ -1,4 +1,13 @@
-
+/**
+ * profile.js  —  Script cho trang profile.html
+ *
+ * Chức năng:
+ *  1. Hiển thị avatar + tên + email người dùng
+ *  2. Upload / đổi ảnh đại diện (Cloudinary qua server, fallback base64)
+ *  3. Sửa tên hiển thị
+ *  4. Ví tiền: xem số dư, nạp tiền (lưu localStorage per-user)
+ *  5. Lịch sử giao dịch
+ */
 
 import {
   auth,
@@ -15,6 +24,9 @@ import { onAuthStateChanged, signOut }
 
 import { doc, getDoc, setDoc }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// ── Hằng số ───────────────────────────────────────────────────────────────────
+const UPLOAD_URL = "http://localhost:3000/upload";
 
 // ── Tiện ích UI ───────────────────────────────────────────────────────────────
 
@@ -40,6 +52,14 @@ function toast(msg, type = "success") {
   el.innerHTML = `<i class="bi bi-${type === "success" ? "check-circle" : "x-circle"} me-2"></i>${msg}`;
   container.appendChild(el);
   setTimeout(() => el.remove(), 3100);
+}
+
+function setUploadStatus(msg, type) {
+  const el = document.getElementById("uploadStatus");
+  if (!el) return;
+  el.textContent = msg;
+  el.className = "upload-status " + type;
+  if (type === "success") setTimeout(() => { el.textContent = ""; el.className = "upload-status"; }, 3000);
 }
 
 // ── Ví tiền (Firestore: users/{uid}) ─────────────────────────────────────────
@@ -153,6 +173,66 @@ onAuthStateChanged(auth, async (user) => {
   // Render ví từ Firestore
   renderWallet(await loadWallet(user.uid));
 });
+
+// ── Upload ảnh ────────────────────────────────────────────────────────────────
+
+const fileInput = document.getElementById("fileInput");
+if (fileInput) {
+  fileInput.addEventListener("change", async function () {
+    const file = this.files[0];
+    if (!file || !currentUser) return;
+
+    // Validate dung lượng
+    if (file.size > 5 * 1024 * 1024) {
+      setUploadStatus("❌ File quá lớn (tối đa 5MB)", "error");
+      return;
+    }
+
+    // Preview ngay lập tức
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.getElementById("avatarImg");
+      if (img) img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    setUploadStatus("⏳ Đang tải ảnh lên...", "loading");
+
+    // Thử upload lên Cloudinary qua server node.js local
+    try {
+      const formData = new FormData();
+      formData.append("image", file);
+      const res = await fetch(UPLOAD_URL, { method: "POST", body: formData });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message || "Upload thất bại");
+
+      await updateUserProfile(getDisplayName(currentUser), json.data.secure_url);
+      setUploadStatus("✅ Ảnh đã được cập nhật!", "success");
+      toast("Ảnh đại diện mới đã lưu!", "success");
+      return;
+    } catch (err) {
+      console.warn("Server Cloudinary không khả dụng:", err.message);
+    }
+
+    // Fallback: lưu base64 vào Firebase Auth (chỉ ảnh ≤ 200KB)
+    if (file.size <= 200 * 1024) {
+      const r2 = new FileReader();
+      r2.onload = async e2 => {
+        try {
+          await updateUserProfile(getDisplayName(currentUser), e2.target.result);
+          setUploadStatus("✅ Lưu ảnh thành công!", "success");
+          toast("Ảnh đã lưu thành công!", "success");
+        } catch (e) {
+          setUploadStatus("❌ Lưu ảnh thất bại: " + e.message, "error");
+        }
+      };
+      r2.readAsDataURL(file);
+    } else {
+      setUploadStatus("⚠️ Cần khởi động server để upload ảnh > 200KB.", "error");
+    }
+  });
+}
 
 // ── Lưu tên ──────────────────────────────────────────────────────────────────
 

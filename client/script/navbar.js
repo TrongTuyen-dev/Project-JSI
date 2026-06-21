@@ -1,8 +1,4 @@
-/**
- * navbar.js — Module dùng chung cho MỌI trang
- * Export: auth, db, initProfile, renderNavbarUser,
- *         getDisplayName, getAvatarUrl, generateAvatarUrl, updateUserProfile
- */
+
 import { auth, db } from "./firebase-init.js";
 import { onAuthStateChanged, updateProfile }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";

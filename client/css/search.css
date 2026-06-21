@@ -23,6 +23,14 @@ body {
   margin: 0;
 }
 
+/* Container rộng hơn trên màn hình lớn để tránh khoảng trống 2 bên */
+@media (min-width: 1400px) {
+  .container { max-width: 1480px; }
+}
+@media (min-width: 1700px) {
+  .container { max-width: 1680px; }
+}
+
 /* ── NAVBAR ─────────────────────────────────────────────────── */
 .navbar {
   background-color: var(--wood-dark) !important;
@@ -93,6 +101,14 @@ body {
   letter-spacing: .5px;
 }
 .results-meta strong { color: var(--wood-dark); }
+.api-badge {
+  display: inline-block;
+  background: rgba(197,160,89,.15);
+  color: var(--gold);
+  border: 1px solid rgba(197,160,89,.4);
+  font-size: .68rem; font-weight: 700; letter-spacing: .5px;
+  padding: 2px 9px; margin-left: 6px; vertical-align: middle;
+}
 
 /* Product card */
 .food-card {
@@ -108,7 +124,7 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(44,30,20,.14);
 }
-.food-card-img-wrap { position: relative; overflow: hidden; height: 190px; }
+.food-card-img-wrap { position: relative; overflow: hidden; height: 210px; }
 .food-card-img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform .4s;

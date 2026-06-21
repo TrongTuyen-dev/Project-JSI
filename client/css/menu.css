@@ -13,6 +13,14 @@ body {
   color: var(--wood-dark);
 }
 
+/* Container rộng hơn trên màn hình lớn để tránh khoảng trống 2 bên */
+@media (min-width: 1400px) {
+  .container { max-width: 1480px; }
+}
+@media (min-width: 1700px) {
+  .container { max-width: 1680px; }
+}
+
 /* Navbar (giữ nguyên gốc) */
 .navbar {
   background-color: var(--wood-dark) !important;
@@ -206,7 +214,7 @@ body {
 }
 .product-img {
   border-radius: 0 !important;
-  height: 200px;
+  height: 215px;
   object-fit: cover;
 }
 .product-title {

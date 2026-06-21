@@ -52,6 +52,8 @@
       <button class="cat-chip" data-cat="Khai vị">Khai vị</button>
       <button class="cat-chip" data-cat="Món chính">Món chính</button>
       <button class="cat-chip" data-cat="Tráng miệng">Tráng miệng</button>
+      <button class="cat-chip" data-cat="Đồ uống">Đồ uống</button>
+      <button class="cat-chip" data-cat="Combo">Combo</button>
     </div>
   </div>
 </div>
@@ -59,6 +61,12 @@
 <!-- ── RESULTS ── -->
 <main class="container results-wrapper">
   <div class="results-meta" id="resultsMeta"></div>
+
+  <!-- Loading indicator khi gọi API -->
+  <div id="searchLoading" style="display:none;text-align:center;padding:40px 0;">
+    <div class="spinner-border" style="color:var(--gold);"></div>
+    <p style="margin-top:12px;color:var(--muted);font-size:.85rem;">Đang tìm kiếm...</p>
+  </div>
 
   <div class="row g-4" id="results"></div>
 
